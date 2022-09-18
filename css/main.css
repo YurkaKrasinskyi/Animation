@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poppins:wght@300;500;700&display=swap");
+@-webkit-keyframes moveCircle {
+  0% {
+    left: 0;
+    top: 0;
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+  }
+  25% {
+    left: 100px;
+    top: 20px;
+    -webkit-transform: scale(1.2) rotate(90deg);
+            transform: scale(1.2) rotate(90deg);
+  }
+  50% {
+    left: 200px;
+    top: 50px;
+    -webkit-transform: scale(1.4) rotate(180deg);
+            transform: scale(1.4) rotate(180deg);
+  }
+  75% {
+    left: 100px;
+    top: 20px;
+    -webkit-transform: scale(1.2) rotate(270deg);
+            transform: scale(1.2) rotate(270deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+@keyframes moveCircle {
+  0% {
+    left: 0;
+    top: 0;
+    -webkit-transform: scale(1) rotate(0);
+            transform: scale(1) rotate(0);
+  }
+  25% {
+    left: 100px;
+    top: 20px;
+    -webkit-transform: scale(1.2) rotate(90deg);
+            transform: scale(1.2) rotate(90deg);
+  }
+  50% {
+    left: 200px;
+    top: 50px;
+    -webkit-transform: scale(1.4) rotate(180deg);
+            transform: scale(1.4) rotate(180deg);
+  }
+  75% {
+    left: 100px;
+    top: 20px;
+    -webkit-transform: scale(1.2) rotate(270deg);
+            transform: scale(1.2) rotate(270deg);
+  }
+  100% {
+    left: 0;
+    top: 0;
+    -webkit-transform: scale(1) rotate(360deg);
+            transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes rotateSquare {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotateSquare {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes scaleLoader {
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+@keyframes scaleLoader {
+  100% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", "sans-serif";
+  font-size: 17px;
+  color: #0d1718;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (max-width: 992px) {
+  html, body {
+    font-size: 16px;
+  }
+}
+
+.header,
+.main,
+.footer {
+  padding: 0 calc(50vw - 500px);
+  background: #edf4f3;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: linear-gradient(180deg, #a7c1db, #5d656d);
+  position: relative;
+}
+
+.logo__img {
+  display: inline-block;
+  background: linear-gradient(45deg, #a7c1db);
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 0 13px 4px #50918e;
+}
+
+.menu {
+  padding-left: 0;
+  padding-left: 10px;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 4vw;
+}
+.menu__item {
+  position: relative;
+}
+.menu__item::after {
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(45deg, #97bdbb, #000096);
+  transition: all 0.25s linear;
+}
+.menu__item:hover::after {
+  width: 100%;
+  left: 0;
+}
+.menu__link {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  color: #96ccca;
+}
+
+.circle {
+  position: relative;
+  margin: 30px 0;
+  height: 160px;
+}
+.circle__inner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #5d656d, #a7c1db);
+  -webkit-animation: moveCircle 5s linear 2s infinite;
+          animation: moveCircle 5s linear 2s infinite;
+}
+
+.square {
+  position: relative;
+  margin: 20px 0;
+  height: 280px;
+}
+.square__inner {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  width: 240px;
+  height: 240px;
+  border-radius: 14px;
+  background: #ffddff;
+  overflow: hidden;
+}
+.square__inner::after {
+  content: "Gradient Worm";
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 84%;
+  height: 84%;
+  color: #6aef85;
+  background: #884188;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+}
+.square__inner:hover::before {
+  content: "Gradient Worm";
+  position: absolute;
+  top: -42%;
+  left: -42%;
+  width: 184%;
+  height: 184%;
+  background: conic-gradient(#ffddff, #d5a0d5, #975a97, #860f86);
+  -webkit-animation: rotateSquare linear 5s infinite;
+          animation: rotateSquare linear 5s infinite;
+}
+
+.loader {
+  width: 500px;
+  height: 150px;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #1B222a;
+  border-radius: 14px;
+}
+.loader__item {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(45deg, #000, #ffddff);
+  -webkit-animation: scaleLoader 3s linear infinite;
+          animation: scaleLoader 3s linear infinite;
+}
+.loader__item:first-child {
+  -webkit-animation: scaleLoader 0.8s ease-in-out alternate infinite;
+          animation: scaleLoader 0.8s ease-in-out alternate infinite;
+}
+.loader__item:nth-child(2) {
+  -webkit-animation: scaleLoader 0.8s ease-in-out 0.15s alternate infinite;
+          animation: scaleLoader 0.8s ease-in-out 0.15s alternate infinite;
+}
+.loader__item:nth-child(3) {
+  -webkit-animation: scaleLoader 0.8s ease-in-out 0.3s alternate infinite;
+          animation: scaleLoader 0.8s ease-in-out 0.3s alternate infinite;
+}
+.loader__item:nth-child(4) {
+  -webkit-animation: scaleLoader 0.8s ease-in-out 0.45s alternate infinite;
+          animation: scaleLoader 0.8s ease-in-out 0.45s alternate infinite;
+}
+.loader__item:nth-child(5) {
+  -webkit-animation: scaleLoader 0.8s ease-in-out 0.6s alternate infinite;
+          animation: scaleLoader 0.8s ease-in-out 0.6s alternate infinite;
+}

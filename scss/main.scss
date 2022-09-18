@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Poppins:wght@300;500;700&display=swap');
+@import 'vars';
+@import 'keyframes';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font_family_main;
+    font-size: $font_size_main;
+    color: $font_color_main;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 992px) {
+        font-size: calc($font_size_main - 1px);
+    }
+}
+
+.header, 
+.main,
+.footer {
+    padding: 0 calc(50vw - 500px);
+    background: #edf4f3;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: linear-gradient(180deg, #a7c1db, #5d656d);
+    position: relative;
+}
+
+.logo {
+
+    &__img {
+        display: inline-block;
+        background: linear-gradient(45deg, #a7c1db);
+        width: 70px;
+        height: 70px;
+        box-shadow: 0 0 13px 4px #50918e;
+    }
+}
+
+.menu {
+    padding-left: 0;
+    padding-left: 10px;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+    &__item {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(45deg, #97bdbb, #000096);
+            transition: all 0.25s linear;
+        }
+
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.1rem;
+        color: #96ccca;
+    }
+}
+
+.circle {
+    position: relative;
+    margin: 30px 0;
+    height: 160px;
+
+    &__inner {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #5d656d, #a7c1db);
+        animation: moveCircle 5s linear 2s infinite;
+    }
+}
+
+.square {
+    position: relative;
+    margin: 20px 0;
+    height: 280px;
+
+    &__inner {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 240px;
+        height: 240px;
+        border-radius: 14px;
+        background: #ffddff;
+        // animation: moveCircle 5s linear 2s infinite;
+        overflow: hidden;
+
+        &::after {
+            content: 'Gradient Worm';
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            width: 84%;
+            height: 84%;
+            color: #6aef85;
+            background: #884188;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 14px;
+        }
+        &:hover::before {
+            content: 'Gradient Worm';
+            position: absolute;
+            top: -42%;
+            left: -42%;
+            width: 184%;
+            height: 184%;
+            background: conic-gradient(#ffddff, #d5a0d5, #975a97, #860f86);
+            animation: rotateSquare linear 5s infinite;
+
+        }
+    }
+}
+
+.loader {
+    width: 500px;
+    height: 150px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #1B222a;
+    border-radius: 14px;
+
+    &__item {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        background: linear-gradient(45deg, #000, #ffddff);
+        animation: scaleLoader 3s linear infinite;
+        
+        &:first-child {
+            animation: scaleLoader 0.8s ease-in-out  alternate infinite;
+        }
+        &:nth-child(2) {
+            animation: scaleLoader 0.8s ease-in-out 0.15s alternate infinite;
+        }
+        &:nth-child(3) {
+            animation: scaleLoader 0.8s ease-in-out  0.30s alternate infinite;
+        }
+        &:nth-child(4) {
+            animation: scaleLoader 0.8s ease-in-out 0.45s alternate infinite;
+        }
+        &:nth-child(5) {
+            animation: scaleLoader 0.8s ease-in-out 0.6s alternate infinite;
+        }
+    }
+}
